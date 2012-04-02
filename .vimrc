@@ -23,7 +23,7 @@ set nobackup            " Do not keep a backup file.
 "set autowrite          " Automatically save before :next, :make etc.
 set history=255         " Number of lines of command line history.
 set undolevels=255      " Number of undo levels.
-set autochdir           " Auto cwd to current file.
+"set autochdir           " Auto cwd to current file.
 set viminfo='20,\"50    " Read/write a .viminfo file, don't store more than
                         " 50 lines of registers.
 
