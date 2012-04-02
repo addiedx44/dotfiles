@@ -32,7 +32,7 @@ set wildmode=list:longest
 set wildchar=<TAB>
 
 "set background=dark
-set number		          " line numbers
+set number              " line numbers
 set cursorline          " highlight current line
 set modeline            " Enable modeline.
 set showcmd             " Show (partial) command in status line.
@@ -70,20 +70,20 @@ set backspace=indent,eol,start
 
 " GUI Options
 if has("gui_running")
-"	set lines=40
-"	set columns=170
-	"colorscheme deveiate
+"  set lines=40
+"  set columns=170
+  "colorscheme deveiate
 
   "set guifont=monaco:h14
 
-	set guioptions-=T
-	set guioptions-=t
-	set guioptions-=m
-	set guioptions-=l
-	set guioptions-=L
-	set guioptions-=r
-	set guioptions-=R
-	set guioptions-=b
+  set guioptions-=T
+  set guioptions-=t
+  set guioptions-=m
+  set guioptions-=l
+  set guioptions-=L
+  set guioptions-=r
+  set guioptions-=R
+  set guioptions-=b
 endif
 
 " Enable syntax-highlighting.
@@ -155,12 +155,12 @@ if has("autocmd")
 
   " Ruby code.
   augroup ruby
-    autocmd BufReadPre,FileReadPre      *.rb set expandtab
+    autocmd BufReadPre,FileReadPre *.rb set expandtab
   augroup END
 
-	"let java_allow_cpp_keywords=1
+  "let java_allow_cpp_keywords=1
 
-	augroup assembly
-		autocmd BufReadPre,FileReadPre *.s set tabstop=16 shiftwidth=16 noexpandtab
-	augroup END
+  augroup assembly
+    autocmd BufReadPre,FileReadPre *.s set tabstop=16 shiftwidth=16 noexpandtab
+  augroup END
 endif
