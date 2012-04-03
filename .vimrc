@@ -4,6 +4,14 @@
 "------------------------------------------------------------------------------
 
 "------------------------------------------------------------------------------
+" Plugins
+"------------------------------------------------------------------------------
+
+" enable pathogen
+" URL: https://github.com/tpope/vim-pathogen
+call pathogen#infect()
+
+"------------------------------------------------------------------------------
 " Standard stuff.
 "------------------------------------------------------------------------------
 
@@ -54,7 +62,7 @@ set cindent
 set esckeys             " Cursor keys in insert mode.
 set tabstop=2           " Number of spaces <tab> counts for.
 set shiftwidth=2        " Number of spaces <tab> counts for.
-set noexpandtab         " Don't expand tabs
+set expandtab         " Don't expand tabs
 "set encoding=utf-8     " Set default encoding to UTF-8.
 "set showbreak=+        " Show a '+' if a line is longer than the screen.
 set nostartofline       " Do not jump to first character with page commands,
@@ -150,14 +158,23 @@ nmap :Q :q
 
 if has("autocmd")
   " Enabled file type detection and file-type specific plugins.
-  " filetype plugin on indent
-  filetype plugin on
+  filetype plugin indent on
+  " filetype plugin on
 
-  " Ruby code.
+  " C/C++ code.
   augroup ruby
-    autocmd BufReadPre,FileReadPre *.rb set expandtab
+    autocmd BufReadPre,FileReadPre *.c,*.cpp,*.h set noexpandtab
   augroup END
 
+  " PHP code.
+  augroup ruby
+    autocmd BufReadPre,FileReadPre *.php set noexpandtab
+  augroup END
+
+  " Java code.
+  augroup ruby
+    autocmd BufReadPre,FileReadPre *.java set noexpandtab
+  augroup END
   "let java_allow_cpp_keywords=1
 
   augroup assembly
