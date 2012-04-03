@@ -9,5 +9,5 @@ Installation or whatever
 I could probably figure out submodules, but it's really not that important.
 After you `cp -R ./.vim $HOME/`, run this for nerdtree:
 
-    cd $HOME/.vim/bundle/ && \\
+    cd $HOME/.vim/bundle/ && \
     git clone https://github.com/scrooloose/nerdtree.git
