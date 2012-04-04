@@ -78,11 +78,15 @@ set backspace=indent,eol,start
 
 " GUI Options
 if has("gui_running")
-"  set lines=40
-"  set columns=170
-  "colorscheme deveiate
+  colorscheme deveiate
+  set background=dark
 
   "set guifont=monaco:h14
+
+  if has("gui_win32")
+    set guifont=Consolas:h11:cANSI
+    au GUIEnter * simalt ~x
+  endif
 
   set guioptions-=T
   set guioptions-=t
@@ -162,20 +166,20 @@ if has("autocmd")
   " filetype plugin on
 
   " C/C++ code.
-  augroup ruby
+  augroup c
     autocmd BufReadPre,FileReadPre *.c,*.cpp,*.h set noexpandtab
   augroup END
 
   " PHP code.
-  augroup ruby
+  augroup php
     autocmd BufReadPre,FileReadPre *.php set noexpandtab
   augroup END
 
   " Java code.
-  augroup ruby
+  augroup java
     autocmd BufReadPre,FileReadPre *.java set noexpandtab
+    "autocmd BufReadPre,FileReadPre *.java let java_allow_cpp_keywords = 1
   augroup END
-  "let java_allow_cpp_keywords=1
 
   augroup assembly
     autocmd BufReadPre,FileReadPre *.s set tabstop=16 shiftwidth=16 noexpandtab
