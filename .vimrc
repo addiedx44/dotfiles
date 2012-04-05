@@ -144,22 +144,16 @@ if has("autocmd")
   " filetype plugin on
 
   " C/C++ code.
-  augroup c
-    autocmd BufReadPre,FileReadPre *.c,*.cpp,*.h set noexpandtab
-  augroup END
+  autocmd BufReadPre,FileReadPre *.c,*.cpp,*.h set noexpandtab
 
   " PHP code.
-  augroup php
-    autocmd BufReadPre,FileReadPre *.php set noexpandtab
-  augroup END
+  autocmd BufReadPre,FileReadPre *.php set noexpandtab
 
   " Java code.
-  augroup java
-    autocmd BufReadPre,FileReadPre *.java set noexpandtab
-    "autocmd BufReadPre,FileReadPre *.java let java_allow_cpp_keywords = 1
-  augroup END
+  autocmd BufReadPre,FileReadPre *.java set noexpandtab
+  "autocmd BufReadPre,FileReadPre *.java let java_allow_cpp_keywords = 1
 
-  augroup assembly
-    autocmd BufReadPre,FileReadPre *.s set tabstop=16 shiftwidth=16 noexpandtab
-  augroup END
+  autocmd BufReadPre,FileReadPre *.s set tabstop=16 shiftwidth=16 noexpandtab
+
+  autocmd BufNewFile,BufRead *.text set filetype=markdown
 endif
