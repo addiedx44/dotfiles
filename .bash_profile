@@ -2,7 +2,13 @@ if [ -f $HOME/.bashrc ]; then
   . $HOME/.bashrc
 fi
 
-alias ls='ls -Gp'
+# mac's ls has a different syntax
+if [ `uname -s` = 'Darwin' ]; then
+  alias ls='ls -Gp'
+else
+  alias ls='ls -p --color'
+fi
+
 alias visudo='sudo -E visudo'
 
 export EDITOR=$(which vim)
