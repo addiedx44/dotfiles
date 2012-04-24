@@ -1,0 +1,80 @@
+##################
+### .nethackrc ###
+##################
+
+####################
+## vanilla config ##
+####################
+
+OPTIONS=name:dgv0,gender:male
+OPTIONS=catname:Katzchen,dogname:Hundchen,horsename:Pferdchen
+OPTIONS=fruit:slime mold
+OPTIONS=boulder:0
+
+OPTIONS=!autopickup
+OPTIONS=pickup_types:$?!/+
+
+OPTIONS=color,hilite_pet,lit_corridor,standout
+OPTIONS=showexp,time
+
+OPTIONS=!cmdassist
+OPTIONS=suppress_alert:3.4.3
+
+OPTIONS=dungeon: |--------||.-|++##.##<><>_|\\#{~.~..## #}
+
+##########################
+## non-vanilla settings ##
+##########################
+
+#OPTIONS=showscore
+OPTIONS=sortloot:full
+#OPTIONS=showborn
+#OPTIONS=use_darkgray
+OPTIONS=paranoid_remove
+OPTIONS=paranoid_hit
+#OPTIONS=hp_monitor
+OPTIONS=menucolors
+
+#########
+# B/U/C #
+#########
+#MENUCOLOR="^[a-zA-Z$] - "=white #may want to enable this if regularly playing priest.. (priests don't see the 'uncursed')
+MENUCOLOR=" blessed"=cyan
+MENUCOLOR=" uncursed"=white
+MENUCOLOR=" cursed"=red
+MENUCOLOR=" [+-][0-9]"=white
+MENUCOLOR=" ([-0-9]+:[-0-9]+)"=white #nethack doesn't display "uncursed" if charges are known
+
+################
+# WATER SPORTS #
+################
+MENUCOLOR=" holy water"=cyan&bold
+MENUCOLOR=" blessed clear potion"=cyan&bold
+MENUCOLOR=" blessed potions? called water"=cyan&bold
+MENUCOLOR=" clear potions? named (holy|blessed)($| )"=cyan&bold
+MENUCOLOR=" potions? of water named (holy|blessed)($| )"=cyan&bold
+MENUCOLOR=" potions? called water named (holy|blessed)($| )"=cyan&bold
+MENUCOLOR=" unholy water"=orange
+MENUCOLOR=" cursed clear potion"=orange
+MENUCOLOR=" cursed potions? called water"=orange
+MENUCOLOR=" potions? called water named (unholy|cursed)($| )"=orange
+
+#################
+# FOOD CONDUCTS # thanks, teabing!
+#################
+# vegan
+MENUCOLOR="(food |cram |K-|C-)ration|gunyoki"=green&bold
+MENUCOLOR="lembas wafer|melon|carrot|tin .* spinach"=green&bold
+MENUCOLOR=" orange$"=green&bold # avoid coloring orange DSM
+MENUCOLOR=" oranges$"=green&bold # avoid coloring orange DSM
+MENUCOLOR=" pear$"=green&bold # avoid coloring pearl rings
+MENUCOLOR=" pears$"=green&bold # avoid coloring pearl rings
+MENUCOLOR=" apple|banana|kelp|eucalyptus|garlic|wolfsbane"=green&bold
+MENUCOLOR=" slime mold"=green&bold  ## YOUR FRUIT HERE
+MENUCOLOR="(tin of )?(gelatinous cube|acid blob|quivering blob)( corpse)?"=green&bold
+MENUCOLOR="(tin of )?(blue|spotted|ochre) jelly( corpse)?"=green&bold
+MENUCOLOR="(tin of )?lichen|shrieker|violet fungus|(brown|yellow|green|red) mold( corpse)?"=green&bold
+
+# vegetarian
+MENUCOLOR="egg|pancake|fortune cookie|candy bar|royal jelly|cream pie|candle"=green
+MENUCOLOR="(tin of )?brown pudding|gray ooze( corpse)?"=green
