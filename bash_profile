@@ -4,9 +4,9 @@ fi
 
 # mac's ls has a different syntax
 if [ `uname -s` = 'Darwin' ]; then
-  alias ls='ls -Gp'
+  alias ls='ls -G'
 else
-  alias ls='ls -p --color'
+  alias ls='ls --color'
 fi
 
 alias visudo='sudo -E visudo'
