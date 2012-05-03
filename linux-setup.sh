@@ -10,8 +10,8 @@ dotfiles=(
 )
 
 # copy dat shit
-for f in $dotfiles; do
-  cp -R $f ../.$f
+for f in ${dotfiles[@]}; do
+  cp -R $f $HOME/.$f
 done
 
 # clone the vim plugins
