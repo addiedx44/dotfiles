@@ -97,7 +97,7 @@ if [[ -n "$PS1" ]]; then
   if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
       . /etc/bash_completion
       export GIT_PS1_SHOWDIRTYSTATE=1
-      export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\]\[\033[00m\]\n\$ '
+      export PS1='\[\033[01;32m\]\u@\H\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\]\[\033[00m\]\n\$ '
   fi
 
 fi
