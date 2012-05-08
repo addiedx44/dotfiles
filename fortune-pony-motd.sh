@@ -23,9 +23,9 @@ EOF
       [[ `command -v cowsay` == "/usr/bin/cowsay" ]] || ln -s `which cowsay` /usr/bin/cowsay
       [[ `command -v fortune` == "/usr/bin/fortune" ]] || ln -s `which fortune` /usr/bin/fortune
 
-      echo "$fortunepony" | sudo tee /etc/update-motd.d/51-fortune-pony >/dev/null 2>&1 &
+      echo "$fortunepony" | tee /etc/update-motd.d/51-fortune-pony >/dev/null 2>&1 &
       if [[ -f /etc/update-motd.d/51-fortune-pony ]]; then
-        sudo chmod 755 /etc/update-motd.d/51-fortune-pony
+        chmod 755 /etc/update-motd.d/51-fortune-pony
       fi
     else
       `command -v cowsay >/dev/null 2>&1` || echo "Cowsay is not installed. Try this: sudo apt-get install cowsay"
