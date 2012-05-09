@@ -40,11 +40,22 @@ if [[ ! `uname -s` = 'Darwin' && -f /etc/update-motd.d ]]; then
   fi
 else
   # this is a Mac (or something without update-motd.d, but we'll assume Mac)
-  if command -v cowsay >/dev/null 2>&1 && command -v fortune >/dev/null 2>&1; then
-    echo "$fortunepony" | tee -a $HOME/.bash_profile >/dev/null 2>&1
+  echo "Configuring ponysay motd :D"
+  if [[ ! `command -v ponysay` ]]; then
+    echo "Ponysay is not installed. Try this:"
+    echo
+    echo "cd $HOME"
+    echo "git clone https://github.com/erkin/ponysay.git"
+    echo "cd ponysay"
+    echo "sudo make"
+    echo
   else
-    `command -v cowsay >/dev/null 2>&1` || echo "Cowsay is not installed. Try this: sudo brew install cowsay"
-    `command -v fortune >/dev/null 2>&1` || echo "Fortune is not installed. Try this: sudo brew install fortune"
-    echo "There was a problem configuring ponysay motd."
+    if command -v cowsay >/dev/null 2>&1 && command -v fortune >/dev/null 2>&1; then
+      echo "$fortunepony" | tee -a $HOME/.bash_profile >/dev/null 2>&1
+    else
+      `command -v cowsay >/dev/null 2>&1` || echo "Cowsay is not installed. Try this: sudo brew install cowsay"
+      `command -v fortune >/dev/null 2>&1` || echo "Fortune is not installed. Try this: sudo brew install fortune"
+      echo "There was a problem configuring ponysay motd."
+    fi
   fi
 fi
