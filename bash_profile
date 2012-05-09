@@ -2,11 +2,15 @@ if [ -f $HOME/.bashrc ]; then
   . $HOME/.bashrc
 fi
 
-# mac's ls has a different syntax
+alias ls='ls --color'
+
+# try using homebrew coreutils, otherwise just fix ls
 if [ `uname -s` = 'Darwin' ]; then
-  alias ls='ls -G'
-else
-  alias ls='ls --color'
+  if [[ `command -v brew` && `brew list | grep coreutils` = 'coreutils' ]]; then
+    PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+  else
+    alias ls='ls -G'
+  fi
 fi
 
 alias visudo='sudo -E visudo'
