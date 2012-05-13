@@ -156,4 +156,6 @@ if has("autocmd")
   autocmd BufReadPre,FileReadPre *.s set tabstop=16 shiftwidth=16 noexpandtab
 
   autocmd BufNewFile,BufRead *.text,*.md,*.markdown set filetype=markdown
+
+  autocmd BufNewFile,BufRead *.conf set expandtab
 endif
