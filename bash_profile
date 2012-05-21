@@ -26,3 +26,10 @@ export PATH="$PATH:$HOME/bin"
 
 # uncomment if you use RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+
+# this has the potential to break in the future if whatismyip.net changes how
+# they display the ip
+function whatismyip {
+  curl whatismyip.net 2>/dev/null | grep strong | sed -E 's/^.*\>(([0-9]+\.?){4}).*$/\1/'
+}
