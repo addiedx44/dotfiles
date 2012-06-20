@@ -31,5 +31,5 @@ export PATH="$PATH:$HOME/bin"
 # this has the potential to break in the future if whatismyip.net changes how
 # they display the ip
 function whatismyip {
-  curl whatismyip.net 2>/dev/null | grep strong | sed -E 's/^.*\>(([0-9]+\.?){4}).*$/\1/'
+  curl http://automation.whatismyip.com/n09230945.asp
 }
