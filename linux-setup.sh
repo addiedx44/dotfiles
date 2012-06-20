@@ -11,10 +11,10 @@ dotfiles=(
 )
 echo "Copying config files..."
 for f in ${dotfiles[@]}; do
-  if [[ -e $HOME/.$f ]]; then
+  if [[ -d $HOME/.$f ]]; then
     echo "$f already exists. Skipping $f..."
   else
-    cp -Rv $f $HOME/.$f
+    cp -Riv $f $HOME/.$f
   fi
 done
 
