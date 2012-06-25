@@ -5,12 +5,11 @@ if [[ "$TERM" = "xterm-256color" ]]; then echo; fortune | sed -e 's/america/amar
 EOF
 
 if [[ `uname -s` = "Darwin" ]]; then
-  pkgmgr= "brew"
+  pkgmgr="brew"
 else
-  pkgmgr= "apt-get"
+  pkgmgr="apt-get"
 fi
 
-echo "Configuring ponysay motd :D"
 if [[ ! `command -v ponysay` ]]; then
   echo "Ponysay is not installed. Try this:"
   echo
@@ -21,7 +20,14 @@ if [[ ! `command -v ponysay` ]]; then
   echo
 else
   if command -v cowsay >/dev/null 2>&1 && command -v fortune >/dev/null 2>&1; then
-    echo "$fortunepony" | tee -a $HOME/.bash_profile >/dev/null 2>&1
+    read -p "Update $HOME/.bash_profile (Y/n)? "
+    if [[ "$REPLY" == "Y" || "$REPLY" == "y" || "$REPLY" == "" ]]; then
+      echo -e "\n$fortunepony" >> $HOME/.bash_profile
+    else
+      echo "Add this to your .bash_profile:"
+      echo
+      echo "$fortunepony"
+    fi
   else
     `command -v cowsay >/dev/null 2>&1` || echo "Cowsay is not installed. Try this: sudo $pkgmgr install cowsay"
     `command -v fortune >/dev/null 2>&1` || echo "Fortune is not installed. Try this: sudo $pkgmgr install fortune"
