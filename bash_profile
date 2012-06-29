@@ -36,4 +36,5 @@ function whatismyip {
 
 function isitup {
   curl "http://isitup.org/$1.json"
+  echo
 }
