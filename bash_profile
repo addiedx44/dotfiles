@@ -33,3 +33,7 @@ export PATH="$PATH:$HOME/.bin"
 function whatismyip {
   curl http://automation.whatismyip.com/n09230945.asp
 }
+
+function isitup {
+  curl "http://isitup.org/$1.json"
+}
