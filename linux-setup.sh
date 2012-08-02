@@ -3,6 +3,7 @@
 dotfiles=(
   bash_profile
   bashrc
+  gitconfig
   gitignore_global
   gvimrc
   nethackrc
