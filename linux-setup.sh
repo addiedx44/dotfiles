@@ -26,11 +26,16 @@ vimplugins[0]=nerdtree
 vimpluginurls[0]=https://github.com/scrooloose/nerdtree.git
 vimplugins[1]=vim-markdown
 vimpluginurls[1]=https://github.com/hallison/vim-markdown.git
+vimplugins[2]=ack.vim
+vimpluginurls[2]=https://github.com/mileszs/ack.vim.git
 
-for i in 0 1; do
+for i in {0..2}; do
   if [[ -e $HOME/.vim/bundle/${vimplugins[$i]} ]]; then
-    echo "${vimplugins[$i]} already exists. Skipping ${vimplugins[$i]}..."
+    echo "Updating ${vimplugins[$i]}..."
+    cd $HOME/.vim/bundle/${vimplugins[$i]}
+    git fetch --quiet origin && git reset --quiet --hard origin/HEAD
   else
+    echo "Cloning ${vimplugins[$i]}..."
     git clone --quiet ${vimpluginurls[$i]} $HOME/.vim/bundle/${vimplugins[$i]}
   fi
 done
