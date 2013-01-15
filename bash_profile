@@ -25,7 +25,9 @@ export EDITOR=$(which vim)
 export PATH="$PATH:$HOME/.bin"
 
 function whatismyip {
-  curl http://automation.whatismyip.com/n09230945.asp
+  # this has the potential to break in the future if whatismyip.net changes how
+  # they display the ip
+  curl whatismyip.net 2>/dev/null | grep strong | sed -E 's/^.*\>(([0-9]+\.?){4}).*$/\1/'
 }
 
 function isitup {

@@ -4,5 +4,3 @@
 	lg = !"git lg1"
 [core]
 	editor = vim
-[branch "master"]
-	mergeoptions = --no-commit --no-ff --log
