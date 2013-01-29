@@ -28,8 +28,10 @@ vimplugins[1]=vim-markdown
 vimpluginurls[1]=https://github.com/hallison/vim-markdown.git
 vimplugins[2]=ack.vim
 vimpluginurls[2]=https://github.com/mileszs/ack.vim.git
+vimplugins[3]=matchit.zip
+vimpluginurls[3]=https://github.com/vim-scripts/matchit.zip.git
 
-for i in {0..2}; do
+for i in {0..3}; do
   if [[ -e $HOME/.vim/bundle/${vimplugins[$i]} ]]; then
     echo "Updating ${vimplugins[$i]}..."
     cd $HOME/.vim/bundle/${vimplugins[$i]}
