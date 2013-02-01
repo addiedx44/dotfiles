@@ -27,7 +27,7 @@ export PATH="$PATH:$HOME/.bin"
 function whatismyip {
   # this has the potential to break in the future if whatismyip.net changes how
   # they display the ip
-  curl whatismyip.net 2>/dev/null | grep strong | sed -E 's/^.*\>(([0-9]+\.?){4}).*$/\1/'
+  curl whatismyip.net 2>/dev/null | grep '^IP Number Is:' | sed 's/^.*>\([0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\)<.*$/\1/'
 }
 
 function isitup {
