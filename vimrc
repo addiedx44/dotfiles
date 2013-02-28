@@ -146,9 +146,6 @@ if has("autocmd")
   " C/C++ code.
   autocmd BufReadPre,FileReadPre *.c,*.cpp,*.h set noexpandtab
 
-  " PHP code.
-  autocmd BufReadPre,FileReadPre *.php set noexpandtab
-
   " Java code.
   autocmd BufReadPre,FileReadPre *.java set noexpandtab
   "autocmd BufReadPre,FileReadPre *.java let java_allow_cpp_keywords = 1
