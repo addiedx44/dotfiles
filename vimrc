@@ -71,7 +71,7 @@ set backspace=indent,eol,start
 
 " Tell vim which characters to show for expanded TABs,
 " trailing whitespace, and end-of-lines. VERY useful!
-set listchars=tab:>-,trail:-<,eol:$
+"set listchars=tab:>-,trail:-<,eol:$
 
 " Enable syntax-highlighting.
 if has("syntax")
