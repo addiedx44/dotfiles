@@ -15,7 +15,7 @@ for f in ${dotfiles[@]}; do
   if [[ -d $HOME/.$f ]]; then
     read -p "$f already exists. Delete (y/N)? "
     if [[ "$REPLY" == "Y" || "$REPLY" == "y" ]]; then
-      rm -rf $f
+      rm -rf $HOME/.$f
       cp -Riv $f $HOME/.$f
     fi
   else
