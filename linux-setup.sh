@@ -13,7 +13,11 @@ dotfiles=(
 echo "Copying config files..."
 for f in ${dotfiles[@]}; do
   if [[ -d $HOME/.$f ]]; then
-    echo "$f already exists. Skipping $f..."
+    read -p "$f already exists. Delete (y/N)? "
+    if [[ "$REPLY" == "Y" || "$REPLY" == "y" ]]; then
+      rm -rf $f
+      cp -Riv $f $HOME/.$f
+    fi
   else
     cp -Riv $f $HOME/.$f
   fi
@@ -45,7 +49,6 @@ done
 
 echo
 echo "Configuring git..."
-git config --global core.editor vim
 git config --global core.excludesfile ~/.gitignore_global
 
 echo

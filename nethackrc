@@ -60,7 +60,7 @@ MENUCOLOR=" cursed potions? called water"=orange
 MENUCOLOR=" potions? called water named (unholy|cursed)($| )"=orange
 
 #################
-# FOOD CONDUCTS # thanks, teabing!
+# FOOD CONDUCTS #
 #################
 # vegan
 MENUCOLOR="(food |cram |K-|C-)ration|gunyoki"=green&bold
