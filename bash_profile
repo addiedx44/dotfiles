@@ -5,17 +5,21 @@ fi
 alias ls='ls --color'
 
 # try using homebrew coreutils, otherwise just fix ls
-if [[ `uname -s` == 'Darwin' ]]; then
+if [[ $(uname -s) == 'Darwin' ]]; then
 
   # assuming you have mysql somewhere
   # export PATH="$PATH:/usr/local/mysql/bin"
   # export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:/usr/local/mysql/lib/"
 
   # the PATH below sets up the GNU coreutils to override the default BSD ones
-  if [[ `command -v brew` && `brew list | grep coreutils` = 'coreutils' ]]; then
+  if [[ $(command -v brew) && $(brew list | grep coreutils) = 'coreutils' ]]; then
     export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
   else
     alias ls='ls -G'
+  fi
+
+  if [[ $(command -v brew) ]]; then
+    export PATH="$(brew --prefix)/bin:$PATH"
   fi
 fi
 
