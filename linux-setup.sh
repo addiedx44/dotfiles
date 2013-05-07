@@ -7,6 +7,7 @@ dotfiles=(
   gitignore_global
   gvimrc
   nethackrc
+  screenrc
   vim
   vimrc
 )
