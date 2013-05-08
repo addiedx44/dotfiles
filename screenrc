@@ -1,14 +1,30 @@
-# An alternative hardstatus to display a bar at the bottom listing the
-# windownames and highlighting the current windowname in blue. (This is only
-# enabled if there is no hardstatus setting for your terminal)
+# messages
+nethack on           # be careful! new screen tonight.
+sorendition "kg"     # makes screen messages stand out, black on green
+msgwait 2
 startup_message off
 
+# miscellaneous
+autodetach on
 altscreen on
+vbell off
+defutf8 on           # utf8
+ignorecase on
+defscrollback 9999
+
+# shell/term stuff
+shell -$SHELL
+attrcolor b ".I"    # allow bold
 term screen-256color
-bind ',' prev
-bind '.' prev
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+defbce on           # erase background with current color
 
 hardstatus on
 hardstatus alwayslastline
 #hardstatus string '%{= kG}%-Lw%{= kW}%50> %n%f* %t%{= kG}%+Lw%< %{= kG}%-=%c:%s%{-}'
-hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %Y-%m-%d %{W}%c:%s%{-} %{g}]'
+hardstatus string '%{= kg}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %Y-%m-%d %{W}%c:%s%{-} %{g}]'
+#hardstatus alwayslastline "%{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw %= %{mk}@%H %{ck}%Y-%m-%d %{yk}%D %{gk}%0c %{bk}%l"
+
+# binds
+bind ',' prev
+bind '.' next
