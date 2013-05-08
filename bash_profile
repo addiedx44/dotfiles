@@ -1,3 +1,8 @@
+# start screen on log in
+#if [ -z "$STY" ]; then
+#  exec screen -ARR
+#fi
+
 if [ -f $HOME/.bashrc ]; then
   . $HOME/.bashrc
 fi
