@@ -34,9 +34,7 @@ export EDITOR=$(which vim)
 export PATH="$PATH:$HOME/.bin"
 
 function whatismyip {
-  # this has the potential to break in the future if whatismyip.net changes how
-  # they display the ip
-  curl whatismyip.net 2>/dev/null | grep '^IP Number Is:' | sed 's/^.*>\([0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\)<.*$/\1/'
+  curl -s -L -A "Mozilla" http://aruljohn.com/ | grep 'Your IP Address is ' | sed 's/^.*is \([0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\)<.*$/\1/'
 }
 
 function isitup {
