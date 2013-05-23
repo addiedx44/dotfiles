@@ -11,6 +11,7 @@ alias ls='ls --color'
 
 # try using homebrew coreutils, otherwise just fix ls
 if [[ $(uname -s) == 'Darwin' ]]; then
+  alias updatedb="sudo /usr/libexec/locate.updatedb"
 
   # assuming you have mysql somewhere
   # export PATH="$PATH:/usr/local/mysql/bin"
@@ -77,3 +78,9 @@ function httpports {
     sed "s/^/Port $port: /"
   done
 }
+
+# macports
+#export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+
+# heroku
+#PATH="/usr/local/heroku/bin:$PATH"
