@@ -102,4 +102,7 @@ if [[ -n "$PS1" ]]; then
 
 fi
 
+# Ctrl+s should search forward in bash history
+stty stop undef
+
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
