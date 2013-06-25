@@ -43,42 +43,6 @@ function isitup {
   echo
 }
 
-function httpports {
-  # $1 is URL
-  if ! [[ -z "$1" ]] ; then
-    URL="$1"
-  else
-    echo "usage: httpports URL [port]"
-    echo "       httpports URL [begin port] [end port]"
-    echo
-    echo "If no port is specified, httpports will scan over the range 1..65535."
-    return
-  fi
-  
-  # $2 is BEGIN port
-  if [[ "$2" =~ ^[0-9]+$ ]] ; then
-    BEGIN=$2
-  else
-    BEGIN=1
-  fi
-  
-  # $3 is END port
-  if  [[ "$3" =~ ^[0-9]+$ ]] ; then
-    END=$3
-  elif ! [[ -z "$2" ]] ; then
-    END=$BEGIN
-  else
-    END=65535
-  fi
-  
-  # GOGOGO
-  for port in $(seq $BEGIN $END) ; do
-    curl -sSLI --max-time 1 $URL:$port 2>&1 |
-    grep "HTTP" |
-    sed "s/^/Port $port: /"
-  done
-}
-
 # macports
 #export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
