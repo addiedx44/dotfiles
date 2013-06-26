@@ -1,5 +1,5 @@
 # start screen on log in
-#if [ -z "$STY" ]; then
+#if [ -t 1 -a -z "$STY" ]; then
 #  exec screen -ARR
 #fi
 
