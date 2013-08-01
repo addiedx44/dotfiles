@@ -27,16 +27,21 @@ if [[ $(uname -s) == 'Darwin' ]]; then
   if [[ $(command -v brew) ]]; then
     export PATH="$(brew --prefix)/bin:$PATH"
   fi
+
+  function whatismyip
+  {
+    curl -s -L http://checkip.dyndns.com/ | sed 's/^.*[[:<:]]\(\([0-9]\{1,3\}\.\)\{3\}[0-9]\{1,3\}\)[[:>:]].*$/\1/'
+  }
+else
+  function whatismyip {
+    curl -s -L http://checkip.dyndns.com/ | sed -r 's/^.*\b([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})\b.*$/\1/'
+  }
 fi
 
 alias visudo='sudo -E visudo'
 
 export EDITOR=$(which vim)
 export PATH="$PATH:$HOME/.bin"
-
-function whatismyip {
-  curl -s -L http://checkip.dyndns.com/ | sed -r 's/^.*\b([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})\b.*$/\1/'
-}
 
 function isitup {
   curl "http://isitup.org/$1.json"
