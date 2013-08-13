@@ -8,9 +8,6 @@ else
   if has("mac")
     set guifont=monaco:h13
   endif
-
-  set lines=999
-  set columns=999
 endif
 
 set guioptions-=T
