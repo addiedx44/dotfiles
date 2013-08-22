@@ -67,7 +67,7 @@ set esckeys             " Cursor keys in insert mode.
 " tell vim which characters to show for expanded TABs,
 " trailing whitespace, and end-of-lines
 set listchars=tab:▸·,trail:·
-set list
+"set list
 
 " Enable syntax-highlighting.
 if has("syntax")
