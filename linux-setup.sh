@@ -3,6 +3,7 @@
 dotfiles=(
   bash_profile
   bashrc
+  gemrc
   gitconfig
   gitignore_global
   gvimrc
