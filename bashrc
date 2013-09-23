@@ -98,6 +98,7 @@ if [[ -n "$PS1" ]]; then
       . /etc/bash_completion
       export GIT_PS1_SHOWDIRTYSTATE=1
       export PS1='\[\033[01;32m\]\u@\H\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\]\[\033[00m\]\n\$ '
+      #export PS1='\[\033[01;32m\]\u@\H\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\]\[\033[00m\] \[\033[01;31m\][$(rvm-prompt)]\[\033[00m\]\n\$ '
   fi
 
 fi
@@ -105,4 +106,4 @@ fi
 # Ctrl+s should search forward in bash history
 stty stop undef
 
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
