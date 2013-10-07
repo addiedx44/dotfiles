@@ -36,8 +36,10 @@ vimplugins[2]=ack.vim
 vimpluginurls[2]=https://github.com/mileszs/ack.vim.git
 vimplugins[3]=matchit.zip
 vimpluginurls[3]=https://github.com/vim-scripts/matchit.zip.git
+vimplugins[4]=vim-lucius
+vimpluginurls[4]=https://github.com/jonathanfilip/vim-lucius
 
-for i in {0..3}; do
+for i in {0..4}; do
   if [[ -e $HOME/.vim/bundle/${vimplugins[$i]} ]]; then
     echo "Updating ${vimplugins[$i]}..."
     cd $HOME/.vim/bundle/${vimplugins[$i]}

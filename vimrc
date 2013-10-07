@@ -27,6 +27,8 @@ set wildmode=list:longest,full
 set wildchar=<TAB>
 
 "set background=dark
+colorscheme lucius
+LuciusBlackHighContrast
 set cursorline          " highlight current line
 set number              " line numbers
 set ruler               " Show the line and column numbers of the cursor.
