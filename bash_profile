@@ -3,6 +3,16 @@
 #  exec screen -ARR
 #fi
 
+# start ssh-agent and add key
+# see also .logout
+#SSHAGENT=`which ssh-agent`
+#SSHAGENTARGS="-s"
+#if [ -z "$SSH_AUTH_SOCK" -a -x "$SSHAGENT" ]; then
+#  eval `$SSHAGENT $SSHAGENTARGS`
+#  trap "kill $SSH_AGENT_PID" 0
+#  ssh-add
+#fi
+
 if [ -f $HOME/.bashrc ]; then
   . $HOME/.bashrc
 fi
@@ -11,7 +21,7 @@ alias ls='ls --color'
 
 # try using homebrew coreutils, otherwise just fix ls
 if [[ $(uname -s) == 'Darwin' ]]; then
-  alias updatedb="sudo /usr/libexec/locate.updatedb"
+  alias updatedb="/usr/libexec/locate.updatedb"
 
   # assuming you have mysql somewhere
   # export PATH="$PATH:/usr/local/mysql/bin"
