@@ -1,6 +1,8 @@
 #!/bin/bash
-
-paranoid=$([ $1 != "-y" ])
+paranoid=0
+if [ -z "$1" ] || [ "$1" != "-y" ]; then
+  paranoid=1
+fi
 
 dotfiles=(
   bash_profile
@@ -17,13 +19,13 @@ dotfiles=(
 )
 echo "Copying config files..."
 for f in ${dotfiles[@]}; do
-  if [[ $paranoid && -d $HOME/.$f ]]; then
+  if [[ $paranoid -eq 1 && -d $HOME/.$f ]]; then
     read -p "$f directory exists. Remove (y/N)? "
     if [[ "$REPLY" == "Y" || "$REPLY" == "y" ]]; then
       rm -rf $HOME/.$f
       cp -Rv $f $HOME/.$f
     fi
-  elif [[ $paranoid && -e $HOME/.$f ]]; then
+  elif [[ $paranoid -eq 1 && -e $HOME/.$f ]]; then
     read -p "$f file exists. Overwrite (y/N)? "
     if [[ "$REPLY" == "Y" || "$REPLY" == "y" ]]; then
       cp -Rv $f $HOME/.$f
@@ -38,12 +40,12 @@ echo "Configuring git..."
 git config --global core.excludesfile ~/.gitignore_global
 
 read -p "Enter your git user name: "
-if [ ! -z "$REPLY" ]; then
+if [ -n "$REPLY" ]; then
   git config --global user.name "$REPLY"
 fi
 
 read -p "Enter your git user email: "
-if [ ! -z "$REPLY" ]; then
+if [ -n "$REPLY" ]; then
   git config --global user.email "$REPLY"
 fi
 
