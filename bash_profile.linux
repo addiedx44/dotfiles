@@ -1,5 +1,5 @@
 # start screen on log-in
-SCREEN="$(command -v screen &>/dev/null)"
+SCREEN="$(command -v screen)"
 if [ -x "$SCREEN" -a -t 1 -a -z "$STY" ]; then
   exec $SCREEN -ARR
 fi
