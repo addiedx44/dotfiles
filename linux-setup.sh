@@ -11,7 +11,7 @@ dotfiles=(
   gitconfig
   gitignore_global
   gvimrc
-  logout
+  bash_logout
   nethackrc
   screenrc
   vim
