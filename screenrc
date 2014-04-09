@@ -11,6 +11,7 @@ vbell off
 defutf8 on           # utf8
 ignorecase on
 defscrollback 9999
+multiuser on
 
 # shell/term stuff
 shell -$SHELL
