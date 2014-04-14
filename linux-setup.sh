@@ -31,7 +31,7 @@ for f in ${dotfiles[@]}; do
       cp -Rv $f $HOME/.$f
     fi
   else
-      cp -Rv $f $HOME/.$f
+    cp -Rv $f $HOME/.$f
   fi
 done
 
@@ -61,8 +61,10 @@ vimplugins[3]=matchit.zip
 vimpluginurls[3]=https://github.com/vim-scripts/matchit.zip.git
 vimplugins[4]=vim-lucius
 vimpluginurls[4]=https://github.com/jonathanfilip/vim-lucius
+vimplugins[5]=puppet-syntax-vim
+vimpluginurls[5]=https://github.com/puppetlabs/puppet-syntax-vim.git
 
-for i in {0..4}; do
+for i in {0..5}; do
   if [[ -e $HOME/.vim/bundle/${vimplugins[$i]} ]]; then
     echo "Updating ${vimplugins[$i]}..."
     cd $HOME/.vim/bundle/${vimplugins[$i]}

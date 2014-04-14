@@ -26,7 +26,6 @@ set wildmenu
 set wildmode=list:longest,full
 set wildchar=<TAB>
 
-"set background=dark
 colorscheme lucius
 LuciusBlackHighContrast
 set cursorline          " highlight current line
