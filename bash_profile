@@ -17,38 +17,37 @@ if [ -f $HOME/.bashrc ]; then
   . $HOME/.bashrc
 fi
 
-BSD=
+alias ls='ls --color'
+
 if [ "$(uname -s)" = 'Darwin' ]; then
+
   alias updatedb="/usr/libexec/locate.updatedb"
+  alias ls='ls -G'
 
   if [ -n "$(command -v brew)" ]; then
     export PATH="$(brew --prefix)/bin:$PATH"
-  fi
 
-  if [ -n "$(command -v brew)" ] && [ "$(brew list | grep coreutils)" = 'coreutils' ]; then
-    export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-  else
-    BSD=1
+    if [ "$(brew list | grep coreutils)" = 'coreutils' ]; then
+      export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+    fi
   fi
-fi
-
-if [ "$BSD" = '1' ]; then
-  alias ls='ls -G'
 
   function whatismyip {
     curl -s -L http://checkip.dyndns.com/ | sed 's/^.*[[:<:]]\(\([0-9]\{1,3\}\.\)\{3\}[0-9]\{1,3\}\)[[:>:]].*$/\1/'
   }
+
 else
-  alias ls='ls --color'
 
   function whatismyip {
     curl -s -L http://checkip.dyndns.com/ | sed -r 's/^.*\b([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})\b.*$/\1/'
   }
+
 fi
 
 function isitup {
   if [ -z "$1" ]; then
     echo "Usage: isitup URL"
+    return
   fi
 
   curl "http://isitup.org/$1.json"
