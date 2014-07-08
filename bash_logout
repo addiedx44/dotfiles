@@ -1,3 +1,5 @@
+# vi: set ft=sh:let g:is_bash=1
+
 # remove keys and kill ssh-agent
 #if [ ${SSH_AGENT_PID+1} == 1 ]; then
 #  ssh-add -D

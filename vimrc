@@ -1,5 +1,5 @@
 " File: $HOME/.vimrc
-" Author: Adam Dunson <ich@v0gel.us>
+" Author: Adam Dunson <adam@cloudspace.com>
 "------------------------------------------------------------------------------
 
 " Load plugins
@@ -98,7 +98,6 @@ imap <silent> <F4> <ESC>:set list!<CR>a
 " Autocorrect
 "------------------------------------------------------------------------------
 "iab beacuse because
-
 nmap :W :w
 nmap :Q :q
 
@@ -111,7 +110,7 @@ if has("autocmd")
 
   autocmd BufReadPre,FileReadPre *.py set shiftwidth=4 tabstop=4 softtabstop=4 expandtab
   autocmd BufReadPre,FileReadPre *.c,*.cpp,*.h set expandtab
-  "autocmd BufReadPre,FileReadPre *.java let java_allow_cpp_keywords = 1
+  "autocmd BufReadPre,FileReadPre *.java let java_allow_cpp_keywords=1
   autocmd BufNewFile,BufRead *.text,*.md,*.markdown set filetype=markdown
   autocmd BufNewFile,BufRead *.conf set expandtab
 endif
