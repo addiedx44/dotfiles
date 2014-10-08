@@ -7,6 +7,8 @@ else
   endif
 endif
 
+set noeb vb t_vb= " stfu
+
 set guioptions-=T " hide toolbar
 set guioptions-=t " hide tearoff menu items
 set guioptions-=m " hide menu bar
