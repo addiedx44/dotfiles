@@ -24,7 +24,7 @@ if [ -n "$PS1" ]; then
     debian_chroot="$(cat /etc/debian_chroot)"
   fi
 
-  # set a fancy prompt (non-color, unless we know we "want" color)
+  # set a fancy prompt (non-color, unless we know we want color)
   case "$TERM" in
     xterm-color) color_prompt=yes;;
     xterm-256color) color_prompt=yes;;
@@ -39,9 +39,9 @@ if [ -n "$PS1" ]; then
   fi
 
   if [ "$color_prompt" = yes ]; then
-    PS1='\e[1;30m\u@\H\e[0m:\e[0;36m\w\e[0m'
+    PS1_START='\e[1;30m\u@\H\e[0m:\e[0;36m\w\e[0m'
   else
-    PS1='\u@\H:\w'
+    PS1_START='\u@\H:\w'
   fi
 
   # enable programmable completion features
@@ -51,35 +51,32 @@ if [ -n "$PS1" ]; then
   unset color_prompt force_color_prompt
 
   if [ "$EUID" -ne 0 ] ; then
-    export PS1="${PS1}\n"'\D{%H:%M:%S} $ '
+    PS1_END="\n"'\D{%H:%M:%S} $ '
+    export PS1="${PS1_START}${PS1_END}"
   else
-    export PS1="${PS1}\n"'\D{%H:%M:%S} # '
+    PS1_END="\n"'\D{%H:%M:%S} # '
+    export PS1="${PS1_START}${PS1_END}"
   fi
 
-  if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+  if command -v brew &>/dev/null && [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
-    GIT_PROMPT_START='\e[1;30m\u@\H\e[0m:\e[0;36m\w\e[0m'
-    GIT_PROMPT_END="\n"'\D{%H:%M:%S} '
-
-    if [ "$EUID" -ne 0 ] ; then
-      GIT_PROMPT_END="${GIT_PROMPT_END}$ "
-    else
-      GIT_PROMPT_END="${GIT_PROMPT_END}# "
-    fi
+    GIT_PROMPT_START="$PS1_START"
+    GIT_PROMPT_END="$PS1_END"
 
     source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
   fi
 
   # enable color support of ls and also add handy aliases
-  if [ -x /usr/bin/dircolors ]; then
+  if command -v dircolors &>/dev/null ; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
+    alias less='less -R'
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
   fi
 
-  # Alias definitions
+  # additional alias definitions
   if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
   fi
@@ -87,7 +84,6 @@ if [ -n "$PS1" ]; then
   # ctrl+s should search forward in bash history
   stty stop undef
 
-  complete -C aws_completer aws
-
+  # force prompt to appear at the bottom of window
   echo -e "\033[$LINES;0f"
 fi

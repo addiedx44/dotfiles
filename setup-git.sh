@@ -1,6 +1,6 @@
 #!/bin/bash
 paranoid=0
-if [ -z "$1" ] || [ "$1" != "-y" ]; then
+if [ -z "$1" ] || [ "$1" != "-f" ]; then
   paranoid=1
 fi
 
@@ -8,7 +8,7 @@ dotfiles=(
   gitconfig
   gitignore_global
 )
-echo "Copying config files..."
+echo "Configuring git..."
 for f in ${dotfiles[@]}; do
   if [[ $paranoid -eq 1 && -d $HOME/.$f ]]; then
     read -p "$f directory exists. Remove (y/N)? "
@@ -26,8 +26,6 @@ for f in ${dotfiles[@]}; do
   fi
 done
 
-echo
-echo "Configuring git..."
 git config --global core.excludesfile ~/.gitignore_global
 
 read -p "Enter your git user name: "

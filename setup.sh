@@ -1,14 +1,15 @@
 #!/bin/bash
 paranoid=0
-if [ -z "$1" ] || [ "$1" != "-y" ]; then
+if [ -z "$1" ] || [ "$1" != "-f" ]; then
   paranoid=1
 fi
 
 dotfiles=(
+  bash_login
+  bash_logout
   bash_profile
   bashrc
   gemrc
-  bash_logout
   nethackrc
   screenrc
 )
@@ -30,5 +31,11 @@ for f in ${dotfiles[@]}; do
   fi
 done
 
-[ command -v git >/dev/null 2>&1 ] && source "$(dirname $0)/setup-git.sh"
-[ command -v vim >/dev/null 2>&1 ] && python "$(dirname $0)/setup-vim.py"
+echo
+command -v git &>/dev/null && bash "$(dirname $0)/setup-git.sh" "$@"
+
+echo
+command -v vim &>/dev/null && python "$(dirname $0)/setup-vim.py" "$@"
+
+echo
+echo 'Done!'

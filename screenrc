@@ -1,5 +1,5 @@
 # messages
-#nethack on           # be careful! new screen tonight.
+#nethack on          # be careful! new screen tonight.
 sorendition "kg"     # makes screen messages stand out, black on green
 msgwait 2
 startup_message off

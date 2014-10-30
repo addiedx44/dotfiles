@@ -25,7 +25,7 @@ dotfiles = [
   'vim',
   'vimrc'
 ]
-print('Copying config files...')
+print('Configuring vim...')
 for dotfile in dotfiles:
     src = os.path.dirname(os.path.abspath(__file__)) + '/' + dotfile
     dst = os.getenv('HOME') + '/.' + dotfile
@@ -56,7 +56,9 @@ plugins = {
     'vim-markdown': 'https://github.com/hallison/vim-markdown.git',
     'matchit.zip': 'https://github.com/vim-scripts/matchit.zip.git',
     'vim-lucius': 'https://github.com/jonathanfilip/vim-lucius',
-    'puppet-syntax-vim': 'https://github.com/puppetlabs/puppet-syntax-vim.git'
+    'puppet-syntax-vim': 'https://github.com/puppetlabs/puppet-syntax-vim.git',
+    'nerdtree-ack': 'https://github.com/tyok/nerdtree-ack.git',
+    'ack': 'https://github.com/tyok/ack.vim.git'
 }
 print('Cloning the Vim plugins...')
 for plugin, url in plugins.items():
