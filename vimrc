@@ -87,4 +87,5 @@ if has("autocmd")
   filetype plugin indent on
   autocmd BufReadPre,FileReadPre *.py set shiftwidth=4 tabstop=4 softtabstop=4
   autocmd BufNewFile,BufRead *.text,*.md,*.markdown set filetype=markdown
+  autocmd BufNewFile,BufRead *.raml set filetype=yaml
 endif
