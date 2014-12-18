@@ -58,12 +58,19 @@ if [ -n "$PS1" ]; then
     export PS1="${PS1_START}${PS1_END}"
   fi
 
+  # check for gitprompt.sh
   if command -v brew &>/dev/null && [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+    GIT_PROMPT_SH="$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
+  elif [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
+    GIT_PROMPT_SH="$HOME/.bash-git-prompt/gitprompt.sh"
+  fi
+
+  if [ -n "$GIT_PROMPT_SH" ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
     GIT_PROMPT_START="$PS1_START"
     GIT_PROMPT_END="$PS1_END"
 
-    source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
+    source "$GIT_PROMPT_SH"
   fi
 
   # enable color support of ls and also add handy aliases

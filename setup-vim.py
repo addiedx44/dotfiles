@@ -31,23 +31,25 @@ for dotfile in dotfiles:
     dst = os.getenv('HOME') + '/.' + dotfile
     if paranoid == 1:
         if input(dotfile + ' exists. Remove (y/N)?') == 'y':
+            shutil.rmtree(dst, ignore_errors=True)
             try:
-                shutil.rmtree(dst)
                 shutil.copytree(src, dst)
             except OSError as exc:
                 if exc.errno in [errno.ENOTDIR, errno.ENOENT]:
                     if exc.errno == errno.ENOTDIR:
-                        os.unlink(dst)
+                        try: os.unlink(dst)
+                        except OSError: pass
                     shutil.copy(src, dst)
                 else: raise
     else:
+        shutil.rmtree(dst, ignore_errors=True)
         try:
-            shutil.rmtree(dst)
             shutil.copytree(src, dst)
         except OSError as exc:
             if exc.errno in [errno.ENOTDIR, errno.ENOENT]:
                 if exc.errno == errno.ENOTDIR:
-                    os.unlink(dst)
+                    try: os.unlink(dst)
+                    except OSError: pass
                 shutil.copy(src, dst)
             else: raise
 
