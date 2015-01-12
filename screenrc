@@ -1,6 +1,6 @@
 # messages
-#nethack on          # be careful! new screen tonight.
-sorendition "kg"     # makes screen messages stand out, black on green
+nethack on           # be careful! new screen tonight.
+sorendition "= yk"     # make screen messages stand out
 msgwait 2
 startup_message off
 
@@ -22,10 +22,9 @@ defbce on           # erase background with current color
 
 hardstatus on
 hardstatus alwayslastline
-#hardstatus string '%{= kG}%-Lw%{= kW}%50> %n%f* %t%{= kG}%+Lw%< %{= kG}%-=%c:%s%{-}'
-hardstatus string '%{= kg}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %Y-%m-%d %{W}%c:%s%{-} %{g}]'
+hardstatus string '%{= ky}%-Lw%{= kW}%50> %n%f* %t%{= ky}%+Lw%< %-=%{= yk}%Y-%m-%d %c:%s%{-}'
+#hardstatus string '%{= kg}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %Y-%m-%d %{W}%c:%s%{-} %{g}]'
 #hardstatus alwayslastline "%{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw %= %{mk}@%H %{ck}%Y-%m-%d %{yk}%D %{gk}%0c %{bk}%l"
 
 # binds
-bind ',' prev
-bind '.' next
+bind 'R' source ~/.screenrc
