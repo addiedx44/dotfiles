@@ -1,6 +1,7 @@
 if has("win32")
+  set shell=C:/cygwin/bin/bash
   set guifont=Consolas:h11:cANSI
-  "au GUIEnter * simalt ~x " 
+  "au GUIEnter * simalt ~x
 else
   if has("mac")
     set guifont=monaco:h13
