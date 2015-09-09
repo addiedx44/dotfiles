@@ -61,7 +61,8 @@ plugins = {
     'puppet-syntax-vim': 'https://github.com/puppetlabs/puppet-syntax-vim.git',
     'nerdtree-ack': 'https://github.com/tyok/nerdtree-ack.git',
     'ack': 'https://github.com/tyok/ack.vim.git',
-    'coffee-script': 'https://github.com/kchmck/vim-coffee-script.git'
+    'coffee-script': 'https://github.com/kchmck/vim-coffee-script.git',
+    'flake8-vim': 'https://github.com/andviro/flake8-vim'
 }
 print('Cloning the Vim plugins...')
 for plugin, url in plugins.items():
