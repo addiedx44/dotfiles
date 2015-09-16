@@ -78,6 +78,20 @@ imap <silent> <F3> <ESC>:set hlsearch!<CR>a
 nmap <silent> <F4> :set list!<CR>
 imap <silent> <F4> <ESC>:set list!<CR>a
 
+let mapleader=";"
+
+" window
+nmap <leader>swh  :topleft  vnew<CR>
+nmap <leader>swl :botright vnew<CR>
+nmap <leader>swk    :topleft  new<CR>
+nmap <leader>swj  :botright new<CR>
+
+" buffer
+nmap <leader>sh   :leftabove  vnew<CR>
+nmap <leader>sl  :rightbelow vnew<CR>
+nmap <leader>sk     :leftabove  new<CR>
+nmap <leader>sj   :rightbelow new<CR>
+
 " enable syntax highlighting
 if has("syntax")
   syntax on
