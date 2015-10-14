@@ -40,7 +40,11 @@ function isitup {
   echo
 }
 
-alias sudo='sudo '
-alias visudo='sudo -E visudo'
 export EDITOR="$(which vim)"
 export PATH="$HOME/.bin:$PATH"
+
+alias sudo='sudo '
+alias visudo='sudo -E visudo'
+
+export WORKON_HOME=$HOME/.virtualenvs
+[ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
