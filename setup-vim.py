@@ -5,6 +5,7 @@ import shutil
 import signal
 import sys
 
+
 def signal_handler(signal, frame):
     print('')
     sys.exit(0)
@@ -21,9 +22,9 @@ if '-f' not in sys.argv:
     paranoid = 1
 
 dotfiles = [
-  'gvimrc',
-  'vim',
-  'vimrc'
+    'gvimrc',
+    'vim',
+    'vimrc'
 ]
 print('Configuring vim...')
 for dotfile in dotfiles:
@@ -63,7 +64,8 @@ plugins = {
     'ack': 'https://github.com/tyok/ack.vim.git',
     'coffee-script': 'https://github.com/kchmck/vim-coffee-script.git',
     'flake8-vim': 'https://github.com/andviro/flake8-vim',
-    'vim-sort-motion': 'https://github.com/christoomey/vim-sort-motion'
+    'vim-sort-motion': 'https://github.com/christoomey/vim-sort-motion',
+    'vim-scala': 'https://github.com/derekwyatt/vim-scala'
 }
 print('Cloning the Vim plugins...')
 for plugin, url in plugins.items():
