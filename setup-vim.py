@@ -65,7 +65,8 @@ plugins = {
     'coffee-script': 'https://github.com/kchmck/vim-coffee-script.git',
     'flake8-vim': 'https://github.com/andviro/flake8-vim',
     'vim-sort-motion': 'https://github.com/christoomey/vim-sort-motion',
-    'vim-scala': 'https://github.com/derekwyatt/vim-scala'
+    'vim-scala': 'https://github.com/derekwyatt/vim-scala',
+    'vim-json': 'https://github.com/elzr/vim-json'
 }
 print('Cloning the Vim plugins...')
 for plugin, url in plugins.items():
