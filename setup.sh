@@ -5,6 +5,7 @@ if [ -z "$1" ] || [ "$1" != "-f" ]; then
 fi
 
 dotfiles=(
+  bash_functions
   bash_login
   bash_logout
   bash_profile

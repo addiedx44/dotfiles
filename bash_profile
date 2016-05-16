@@ -2,13 +2,9 @@ if [ -f $HOME/.bashrc ] ; then
   . $HOME/.bashrc
 fi
 
-function whatismyip {
-  if [ "$1" = "--bsd" ] ; then
-    curl -s -L http://checkip.dyndns.com/ | sed 's/^.*[[:<:]]\(\([0-9]\{1,3\}\.\)\{3\}[0-9]\{1,3\}\)[[:>:]].*$/\1/'
-  else
-    curl -s -L http://checkip.dyndns.com/ | sed -r 's/^.*\b([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})\b.*$/\1/'
-  fi
-}
+if [ -f $HOME/.bash_functions ] ; then
+  . $HOME/.bash_functions
+fi
 
 if [ "$(uname)" == "Darwin" ] ; then
   alias updatedb="/usr/libexec/locate.updatedb"
@@ -29,16 +25,6 @@ if [ "$(uname)" == "Darwin" ] ; then
     fi
   fi
 fi
-
-function isitup {
-  if [ -z "$1" ] ; then
-    echo "Usage: isitup URL"
-    return
-  fi
-
-  curl "http://isitup.org/${1}.json"
-  echo
-}
 
 export EDITOR="$(which vim)"
 export PATH="$HOME/.bin:$PATH"
