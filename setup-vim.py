@@ -54,28 +54,5 @@ for dotfile in dotfiles:
                 shutil.copy(src, dst)
             else: raise
 
-plugins = {
-    'nerdtree': 'https://github.com/scrooloose/nerdtree.git',
-    'vim-markdown': 'https://github.com/hallison/vim-markdown.git',
-    'matchit.zip': 'https://github.com/vim-scripts/matchit.zip.git',
-    'vim-lucius': 'https://github.com/jonathanfilip/vim-lucius',
-    'puppet-syntax-vim': 'https://github.com/puppetlabs/puppet-syntax-vim.git',
-    'nerdtree-ack': 'https://github.com/tyok/nerdtree-ack.git',
-    'ack': 'https://github.com/tyok/ack.vim.git',
-    'coffee-script': 'https://github.com/kchmck/vim-coffee-script.git',
-    'flake8-vim': 'https://github.com/andviro/flake8-vim',
-    'vim-sort-motion': 'https://github.com/christoomey/vim-sort-motion',
-    'vim-scala': 'https://github.com/derekwyatt/vim-scala',
-    'vim-json': 'https://github.com/elzr/vim-json'
-}
-print('Cloning the Vim plugins...')
-for plugin, url in plugins.items():
-    if os.path.isdir(PLUGINPATH + '/' + plugin):
-        print('Updating ' + plugin)
-        cmd = ['cd ' + PLUGINPATH + '/' + plugin]
-        cmd.append('git fetch --quiet origin')
-        cmd.append('git reset --quiet --hard origin/HEAD')
-        os.system(' && '.join(cmd))
-    else:
-        print('Cloning ' + plugin)
-        os.system('git clone --quiet ' + url + ' ' + PLUGINPATH + '/' + plugin)
+os.system('git clone --quiet https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim')
+os.system('vim +PluginInstall +qall')

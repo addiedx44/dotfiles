@@ -34,3 +34,7 @@ alias visudo='sudo -E visudo'
 
 export WORKON_HOME=$HOME/.virtualenvs
 [ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
+
+if command -v rbenv &>/dev/null ; then
+  eval "$(rbenv init -)"
+fi
