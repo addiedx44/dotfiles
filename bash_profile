@@ -51,3 +51,7 @@ fi
 if command -v /usr/libexec/java_home &>/dev/null ; then
   export JAVA_HOME=$(/usr/libexec/java_home)
 fi
+
+if [ -d /usr/local/arcanist/bin ] ; then
+  export PATH=$PATH:/usr/local/arcanist/bin
+fi
