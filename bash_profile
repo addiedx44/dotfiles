@@ -47,3 +47,7 @@ fi
 if [ -d /Applications/Postgres.app/Contents/Versions/latest/bin ] ; then
   export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 fi
+
+if command -v /usr/libexec/java_home &>/dev/null ; then
+  export JAVA_HOME=$(/usr/libexec/java_home)
+fi
