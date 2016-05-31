@@ -23,6 +23,10 @@ if [ "$(uname)" == "Darwin" ] ; then
       export MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
       unalias whatismyip
     fi
+
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+      . $(brew --prefix)/etc/bash_completion
+    fi
   fi
 fi
 
