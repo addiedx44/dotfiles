@@ -26,6 +26,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'christoomey/vim-sort-motion'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'elzr/vim-json'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -42,12 +43,20 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" configure plugins
+let g:vim_json_syntax_conceal = 0
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
 try
   colorscheme lucius
   LuciusBlackHighContrast
 catch /^Vim\%((\a\+)\)\=:E185/
 endtry
 
+" standard vim configs
 set ttyfast
 set noeb vb t_vb=       " stfu
 set nocompatible
@@ -120,16 +129,16 @@ imap <silent> <F4> <ESC>:set list!<CR>a
 let mapleader=";"
 
 " window
-nmap <leader>swh  :topleft  vnew<CR>
+nmap <leader>swh :topleft  vnew<CR>
 nmap <leader>swl :botright vnew<CR>
-nmap <leader>swk    :topleft  new<CR>
-nmap <leader>swj  :botright new<CR>
+nmap <leader>swk :topleft  new<CR>
+nmap <leader>swj :botright new<CR>
 
 " buffer
-nmap <leader>sh   :leftabove  vnew<CR>
-nmap <leader>sl  :rightbelow vnew<CR>
-nmap <leader>sk     :leftabove  new<CR>
-nmap <leader>sj   :rightbelow new<CR>
+nmap <leader>sh :leftabove  vnew<CR>
+nmap <leader>sl :rightbelow vnew<CR>
+nmap <leader>sk :leftabove  new<CR>
+nmap <leader>sj :rightbelow new<CR>
 
 " enable syntax highlighting
 if has("syntax")
@@ -142,3 +151,5 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.text,*.md,*.markdown set filetype=markdown
   autocmd BufNewFile,BufRead *.raml set filetype=yaml
 endif
+
+command ShouldRun execute "normal! /should.*do\<cr>/'\<cr>lv/do\<cr>?'\<cr>h".'"ty'|execute "!ruby % -n '/".@t."/'"|let @t=""
