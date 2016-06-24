@@ -36,7 +36,7 @@ echo
 command -v git &>/dev/null && bash "$(dirname $0)/setup-git.sh" "$@"
 
 echo
-command -v vim &>/dev/null && python "$(dirname $0)/setup-vim.py" "$@"
+command -v vim &>/dev/null && bash "$(dirname $0)/setup-vim.sh" "$@"
 
 echo
 echo 'Done!'
