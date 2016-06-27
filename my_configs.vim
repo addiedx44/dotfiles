@@ -2,6 +2,11 @@ set number
 set tabstop=2 shiftwidth=2
 set nohlsearch
 set gfn=Source\ Code\ Pro:h13,Hack:h13,Menlo:h13
+set listchars=tab:▸·,trail:·
+set list
+
+set textwidth=99
+set colorcolumn=+1
 
 let g:NERDTreeWinPos = "left"
 let g:syntastic_quiet_messages={'level':'warnings'}
@@ -9,6 +14,8 @@ let g:syntastic_quiet_messages={'level':'warnings'}
 map 0 0
 map + +
 map _ _
+map <Space> <Space>
+map <C-Space> <C-Space>
 map K <Plug>(expand_region_expand)
 map J <Plug>(expand_region_shrink)
 
