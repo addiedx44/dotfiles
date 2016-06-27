@@ -1,8 +1,16 @@
-let g:NERDTreeWinPos = "left"
 set number
 set tabstop=2 shiftwidth=2
-
+set nohlsearch
 set gfn=Source\ Code\ Pro:h13,Hack:h13,Menlo:h13
+
+let g:NERDTreeWinPos = "left"
+let g:syntastic_quiet_messages={'level':'warnings'}
+
+map 0 0
+map + +
+map _ _
+map K <Plug>(expand_region_expand)
+map J <Plug>(expand_region_shrink)
 
 try
   colorscheme lucius
@@ -26,4 +34,4 @@ imap <silent> <F3> <ESC>:set hlsearch!<CR>a
 nmap <silent> <F4> :set list!<CR>
 imap <silent> <F4> <ESC>:set list!<CR>a
 
-command ShouldRun execute "normal! /should.*do\<cr>/'\<cr>lv/do\<cr>?'\<cr>h".'"ty'|execute "!ruby % -n '/".@t."/'"|let @t=""
+command! ShouldRun execute "normal! $?should.*do\<cr>/'\<cr>lv/do\<cr>?'\<cr>h".'"ty'|execute "!ruby % -n '/".@t."/'"|let @t=""
