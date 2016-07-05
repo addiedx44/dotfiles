@@ -1,3 +1,4 @@
+set noeb vb t_vb= " stfu
 set number
 set tabstop=2 shiftwidth=2
 set nohlsearch
