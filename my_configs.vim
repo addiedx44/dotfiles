@@ -1,14 +1,18 @@
 set noeb vb t_vb= " stfu
+
 set history=1000
 set swapfile
-set number
+
 set tabstop=2
 set shiftwidth=2
-set nohlsearch
+set nojoinspaces " one space after a period
+
+set number
 set listchars=tab:▸·,trail:·
 set list
 set textwidth=99
 set colorcolumn=+1
+set nohlsearch
 set gfn=Source\ Code\ Pro:h13,Hack:h13,Menlo:h13
 
 map 0 0
