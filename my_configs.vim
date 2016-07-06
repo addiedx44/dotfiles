@@ -37,11 +37,11 @@ nmap <silent> <F1> :NERDTreeToggle<CR>
 imap <silent> <F1> <ESC>:NERDTreeToggle<CR>
 
 " F2: toggle wrap/linebreak
-nmap <silent> <F2> :set wrap!<CR>:set linebreak!<CR>
-imap <silent> <F2> <ESC>:set wrap!<CR>:set linebreak!<CR>a
+nmap <silent> <F2> :set wrap!<CR>:set linebreak!<CR>:set wrap?<CR>
+imap <silent> <F2> <ESC>:set wrap!<CR>:set linebreak!<CR>:set wrap?<CR>a
 
 " F3: toggle search highlighting
-nmap <silent> <F3> :set hlsearch!<CR>
-imap <silent> <F3> <ESC>:set hlsearch!<CR>a
+nmap <silent> <F3> :set hlsearch!<CR>:set hlsearch?<CR>
+imap <silent> <F3> <ESC>:set hlsearch!<CR>:set hlsearch?<CR>a
 
 command! ShouldRun execute "normal! $?should.*do\<cr>/'\<cr>lv/do\<cr>?'\<cr>h".'"ty'|execute "!ruby % -n '/".@t."/'"|let @t=""
