@@ -7,6 +7,7 @@ set tabstop=2
 set shiftwidth=2
 set nojoinspaces " one space after a period
 
+set showcmd
 set number
 set listchars=tab:▸·,trail:·
 set list
