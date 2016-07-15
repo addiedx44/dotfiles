@@ -23,6 +23,8 @@ map <Space> <Space>
 map <C-Space> <C-Space>
 map K <Plug>(expand_region_expand)
 map J <Plug>(expand_region_shrink)
+nmap :W :w
+nmap :Q :q
 
 try
   colorscheme lucius
