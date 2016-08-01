@@ -30,3 +30,7 @@ function isitup {
   curl "http://isitup.org/${1}.json"
   echo
 }
+
+function nametab {
+  echo -ne "\033]0;"$*"\007"
+}
