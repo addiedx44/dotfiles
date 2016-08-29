@@ -16,6 +16,8 @@ set colorcolumn=+1
 set nohlsearch
 set gfn=Source\ Code\ Pro\ ExtraLight:h13,Hack:h13,Menlo:h13
 
+set fo-=t
+
 map 0 0
 map + +
 map _ _
@@ -46,5 +48,9 @@ imap <silent> <F2> <ESC>:set wrap!<CR>:set linebreak!<CR>:set wrap?<CR>a
 " F3: toggle search highlighting
 nmap <silent> <F3> :set hlsearch!<CR>:set hlsearch?<CR>
 imap <silent> <F3> <ESC>:set hlsearch!<CR>:set hlsearch?<CR>a
+
+" F12: clear trailing whitespace
+nmap <silent> <F12> :call DeleteTrailingWS()<CR>:echo "Trailing whitespace deleted!"<CR>
+imap <silent> <F12> <ESC>:call DeleteTrailingWS()<CR>:echo "Trailing whitespace deleted!"<CR>a
 
 command! ShouldRun execute "normal! $?should.*do\<cr>/'\<cr>lv/do\<cr>?'\<cr>h".'"ty'|execute "!ruby % -n '/".@t."/'"|let @t=""
