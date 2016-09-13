@@ -48,13 +48,29 @@ if [ -n "$PS1" ]; then
   if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
   fi
+
+  if command -v ~/.rvm/bin/rvm-prompt &>/dev/null ; then
+    function prompt_rvm {
+      rbv=`~/.rvm/bin/rvm-prompt`
+      rbv=${rbv#ruby-}
+      [[ $rbv == *"@"* ]] || rbv="${rbv}@default"
+      echo $rbv
+    }
+
+    if [ "$color_prompt" = yes ]; then
+      rbv=" [\$(prompt_rvm | perl -p -e 's/([^@]+)@(.+)/\\e[31m\1\\e[0m@\\e[91m\2\\e[0m/')]"
+    else
+      rbv="[\$(prompt_rvm)]"
+    fi
+  fi
+
   unset color_prompt force_color_prompt
 
   if [ "$EUID" -ne 0 ] ; then
-    PS1_END="\n"'\D{%H:%M:%S} $ '
+    PS1_END="$rbv\n"'\D{%H:%M:%S} $ '
     export PS1="${PS1_START}${PS1_END}"
   else
-    PS1_END="\n"'\D{%H:%M:%S} # '
+    PS1_END="$rbv\n"'\D{%H:%M:%S} # '
     export PS1="${PS1_START}${PS1_END}"
   fi
 
@@ -93,4 +109,10 @@ if [ -n "$PS1" ]; then
 
   # force prompt to appear at the bottom of window
   echo -e "\033[$LINES;0f"
+
+  if command -v aws_completer &>/dev/null ; then
+    complete -C aws_completer aws
+  fi
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
