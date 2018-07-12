@@ -49,8 +49,18 @@ imap <silent> <F2> <ESC>:set wrap!<CR>:set linebreak!<CR>:set wrap?<CR>a
 nmap <silent> <F3> :set hlsearch!<CR>:set hlsearch?<CR>
 imap <silent> <F3> <ESC>:set hlsearch!<CR>:set hlsearch?<CR>a
 
-" F12: clear trailing whitespace
-nmap <silent> <F12> :call DeleteTrailingWS()<CR>:echo "Trailing whitespace deleted!"<CR>
-imap <silent> <F12> <ESC>:call DeleteTrailingWS()<CR>:echo "Trailing whitespace deleted!"<CR>a
+" F5: toggle search highlighting
+nmap <silent> <F5> :source ~/.vim_runtime/my_configs.vim<CR>
+imap <silent> <F5> <ESC>:source ~/.vim_runtime/my_configs.vim<CR>a
+
+" F10: clear trailing whitespace
+nmap <silent> <F10> :call CleanExtraSpaces()<CR>:echo "Trailing whitespace deleted!"<CR>
+imap <silent> <F10> <ESC>:call CleanExtraSpaces()<CR>:echo "Trailing whitespace deleted!"<CR>a
 
 command! ShouldRun execute "normal! $?should.*do\<cr>/'\<cr>lv/do\<cr>?'\<cr>h".'"ty'|execute "!ruby % -n '/".@t."/'"|let @t=""
+
+let mapleader = ";"
+let g:mapleader = ";"
+
+" fix mouse lag when using ALE
+autocmd FileType ruby,eruby set noballooneval

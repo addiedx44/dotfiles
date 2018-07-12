@@ -29,6 +29,7 @@ rm -rf "$runtimepath"
 
 git clone git@github.com:adamdunson/vimrc "$runtimepath"
 pushd "$runtimepath" &>/dev/null
+git checkout adam
 python3 update_plugins.py
 sh install_awesome_vimrc.sh
 popd &>/dev/null
