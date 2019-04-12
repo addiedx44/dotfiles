@@ -51,15 +51,3 @@ fi
 if [ -d /Applications/Postgres.app/Contents/Versions/latest/bin ] ; then
   export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 fi
-
-if [ -z $JAVA_HOME ] && command -v /usr/libexec/java_home &>/dev/null ; then
-  if command -v setjdk &>/dev/null ; then
-    setjdk 1.7
-  else
-    export JAVA_HOME=$(/usr/libexec/java_home)
-  fi
-fi
-
-if [ -d /usr/local/arcanist/bin ] ; then
-  export PATH=$PATH:/usr/local/arcanist/bin
-fi
