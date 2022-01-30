@@ -1,0 +1,5 @@
+alias ls="gls --color --human-readable --group-directories-first"
+alias pwgen="sf-pwgen"
+alias python="python3"
+alias pip="pip3"
+alias updatedb="/usr/libexec/locate.updatedb"
