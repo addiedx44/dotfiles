@@ -16,17 +16,10 @@ function paranoid_cp {
 # oh-my-zsh
 if ! [ -d "$HOME/.oh-my-zsh" ]; then
     echo 'Installing oh-my-zsh...'
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 paranoid_cp "$(dirname "$0")/zshrc" "$HOME/.zshrc"
 paranoid_cp -r "$(dirname "$0")/zsh_custom/*.zsh" "$HOME/.oh-my-zsh/custom"
-
-# p10k
-if ! [ -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ] ; then
-    echo 'Installing p10k...'
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/.oh-my-zsh/custom/themes/powerlevel10k"
-fi
-paranoid_cp "$(dirname "$0")/p10k.zsh" "$HOME/.p10k.zsh"
 
 
 # homebrew
@@ -64,3 +57,15 @@ done
 # git
 paranoid_cp "$(dirname "$0")/gitconfig" "$HOME/.gitconfig"
 paranoid_cp "$(dirname "$0")/gitignore_global" "$HOME/.gitignore_global"
+
+
+# p10k
+if ! [ -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ] ; then
+    echo 'Installing p10k...'
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/.oh-my-zsh/custom/themes/powerlevel10k"
+fi
+paranoid_cp "$(dirname "$0")/p10k.zsh" "$HOME/.p10k.zsh"
+
+
+# finally, configure p10k
+p10k configure
