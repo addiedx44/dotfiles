@@ -32,6 +32,7 @@ paranoid_cp "$(dirname "$0")/p10k.zsh" "$HOME/.p10k.zsh"
 # homebrew
 if ! command -v brew ; then
     echo 'Installing homebrew...'
+    xcode-select --install
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 xargs brew install < "$(dirname "$0")/brew.txt"
