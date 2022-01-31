@@ -16,8 +16,6 @@ macvim
 nethack
 nmap
 node
-opencv
-ponysay
 py3cairo
 rbenv
 sf-pwgen
