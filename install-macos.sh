@@ -67,3 +67,4 @@ if ! [ -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ] ; then
 fi
 paranoid_cp "$(dirname "$0")/p10k.zsh" "$HOME/.p10k.zsh"
 source "$HOME/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme"
+p10k configure

@@ -1,6 +1,5 @@
-#!/bin/bash
+#!/bin/zsh
 
-# install homebrew
 if [ "$(uname)" == 'Darwin' ] ; then
-    bash "$(dirname "$0")/install-macos.sh" "$@"
+    zsh "$(dirname "$0")/install-macos.sh" $@
 fi
