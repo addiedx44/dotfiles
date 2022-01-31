@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 paranoid=0
 if [ -z "$1" ] || [ "$1" != "-f" ]; then
@@ -56,7 +56,7 @@ if ! [ -d "$HOME/.oh-my-zsh" ]; then
     echo 'Installing oh-my-zsh...'
     RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
-paranoid_cp -r "$(dirname "$0")/zsh_custom/*.zsh" "$HOME/.oh-my-zsh/custom"
+paranoid_cp -r "$(dirname "$0")"/zsh_custom/*.zsh "$HOME/.oh-my-zsh/custom"
 paranoid_cp -r "$(dirname "$0")/zshrc" "$HOME/.zshrc"
 paranoid_cp -r "$(dirname "$0")/zprofile" "$HOME/.zprofile"
 
