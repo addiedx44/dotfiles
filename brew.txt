@@ -10,9 +10,9 @@ git-filter-repo
 gnu-sed
 gsettings-desktop-schemas
 hicolor-icon-theme
+homebrew/cask/macvim
 libepoxy
 librsvg
-macvim
 nethack
 nmap
 node
