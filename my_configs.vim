@@ -21,8 +21,6 @@ map <Space> <Space>
 map <C-Space> <C-Space>
 map K <Plug>(expand_region_expand)
 map J <Plug>(expand_region_shrink)
-nmap :W :w
-nmap :Q :q
 unmap $$
 unmap $1
 unmap $2
@@ -45,3 +43,14 @@ imap <silent> <F3> <ESC>:set hlsearch!<CR>:set hlsearch?<CR>a
 " F10: clear trailing whitespace
 nmap <silent> <F10> :call CleanExtraSpaces()<CR>:echo "Trailing whitespace deleted!"<CR>
 imap <silent> <F10> <ESC>:call CleanExtraSpaces()<CR>:echo "Trailing whitespace deleted!"<CR>a
+
+command! WQ wq
+command! Wq wq
+command! W w
+command! Q q
+
+set nu
+
+let g:AutoPairsLoaded = 0
+set nofoldenable
+au FileType javascript setl nofen
