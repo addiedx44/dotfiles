@@ -7,12 +7,9 @@ set number
 set listchars=tab:▸·,trail:·
 set list
 set nohlsearch
-set gfn=Source\ Code\ Pro\ ExtraLight:h13,Hack:h13,Menlo:h13
+set gfn=MesloLGS\ NF:h14
 set fo-=t
 set colorcolumn=+1
-
-autocmd FileType python setlocal colorcolumn=80
-au BufRead,BufNewFile *.template set ft=yaml
 
 map 0 0
 map + +
@@ -48,9 +45,17 @@ command! WQ wq
 command! Wq wq
 command! W w
 command! Q q
+command! Wa wa
+command! Qa qa
+command! Wqa wqa
 
 set nu
 
 let g:AutoPairsLoaded = 0
 set nofoldenable
 au FileType javascript setl nofen
+
+autocmd FileType python setlocal colorcolumn=80
+au BufRead,BufNewFile *.template set ft=yaml
+
+hi IncSearch term=reverse guifg=DarkRed guibg=White
