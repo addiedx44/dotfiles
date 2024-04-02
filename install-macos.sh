@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 paranoid=0
 if [ -z "$1" ] || [ "$1" != "-f" ]; then
@@ -13,6 +13,14 @@ function paranoid_cp {
     fi
 }
 
+final_messages=""
+function append_message {
+  if [ -n "$1" ]; then
+    final_messages+="$1"$'\n'
+  fi
+}
+
+
 # homebrew
 if ! command -v brew ; then
     echo 'Installing homebrew...'
@@ -22,6 +30,20 @@ fi
 eval "$(/opt/homebrew/bin/brew shellenv)"
 xargs brew install < "$(dirname "$0")/brew.txt"
 
+
+# terraform
+curl -s https://www.hashicorp.com/.well-known/pgp-key.txt | gpg --import
+
+append_message "Run the following to sign this key once your gpg keys are generated/imported:
+
+gpg --lsign-key security@hashicorp.com
+gpg --update-trustdb"
+
+paranoid_cp -r "$(dirname "$0")/terraformrc" "$HOME/.terraformrc"
+
+append_message "Use tfenv to install Terraform, e.g.,
+
+tfenv install"
 
 # vimrc
 if ! [ -d "$HOME/.vim_runtime" ] ; then
@@ -68,3 +90,11 @@ fi
 paranoid_cp "$(dirname "$0")/p10k.zsh" "$HOME/.p10k.zsh"
 source "$HOME/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme"
 p10k configure
+
+
+# misc configs
+paranoid_cp -r "$(dirname "$0")/shellcheckrc" "$HOME/.shellcheckrc"
+paranoid_cp -r "$(dirname "$0")/flake8" "$HOME/.flake8"
+paranoid_cp -r "$(dirname "$0")/gemrc" "$HOME/.gemrc"
+
+echo "$final_messages"
